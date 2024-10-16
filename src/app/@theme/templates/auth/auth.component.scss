@@ -1,0 +1,118 @@
+:host {
+    display: block;
+    height: 100vh;
+}
+
+.auth-container {
+    padding: 6.4rem 3.2rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+
+    height: 100%;
+
+    .banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: #ef892a;
+        border-radius: 1.6rem;
+
+        padding: 6rem;
+
+        background-image: url('/assets/decoration.svg');
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        background-size: contain;
+
+        height: inherit;
+
+        .morphism {
+            background: rgba(#B7E9F6, 0.25);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            padding: 2.3rem 3.1rem;
+
+            height: 100%;
+            width: 100%;
+
+            h1 {
+                font-family: 'Inter', sans-serif;
+                font-size: 4.8rem;
+                color: #fff;
+                line-height: 120%;
+
+                text-align: center;
+            }
+
+            .person {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+
+            .indicators {
+                display: flex;
+                align-items: center;
+                gap: .8rem;
+
+                position: absolute;
+                bottom: 3.1rem;
+
+                .indicator {
+                    width: 1.6rem;
+                    height: 1.6rem;
+
+                    border-radius: 1.6rem;
+
+                    background-color: rgba(#F7F7F7, 0.6);
+
+                    &.active {
+                        background-color: #fff;
+                        width: 5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .auth {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            max-width: 44.5rem;
+            gap: 3.2rem;
+
+            .logo img {
+                height: 4.7rem;
+            }
+
+        }
+
+        .copyright {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            span {
+                font-family: 'Inter', sans-serif;
+                font-size: 1.6rem;
+                color: #B3B3B3;
+            }
+        }
+    }
+}
