@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    min-width: 44.5rem;
+
+    .forgot-password {
+        margin-left: auto;
+        text-decoration: none;
+
+        font-family: 'Inter', sans-serif;
+        font-size: 1.6rem;
+        color: #1e1e1e;
+    }
+
+    span {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.4rem;
+        color: #303030;
+
+        text-align: center;
+
+        a {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;
+            line-height: 140%;
+
+            color: #757575;
+            text-decoration: none;
+        }
+    }
+}

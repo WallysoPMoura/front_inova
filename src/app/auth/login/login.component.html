@@ -1,1 +1,9 @@
-<p>login works!</p>
+<form [formGroup]="form">
+    <inova-text-field label="E-mail corporativo" placeholder="Informe seu e-mail corporativo" formControlName="email" type="email" />
+    <inova-text-field label="Senha" placeholder="Informe sua senha de acesso" formControlName="password" type="password" />
+    <a class="forgot-password" routerLink="/auth/forgot-password">Esqueceu a senha?</a>
+
+    <button inovaButton [disabled]="form.invalid">Accessar</button>
+
+    <span>Não possui acesso? <a href="#">Entre em contato com sua empresa</a></span>
+</form>

@@ -1,0 +1,12 @@
+<div class="input-group">
+    @if (label) {
+        <label>{{ label }}</label>
+    }
+    <input #input [type]="type" [placeholder]="placeholder"  (keyup)="change(input)" [(ngModel)]="value">
+
+    @if(supportText && supportText.text && supportText.visible) {
+        <small [ngClass]="supportText.status ?? 'info'">
+            {{ supportText.text }}
+        </small>
+        }
+</div>

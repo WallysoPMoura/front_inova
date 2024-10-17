@@ -1,1 +1,13 @@
-<p>code-valide works!</p>
+<form [formGroup]="form">
+    <div class="title">
+        <h3>Código de validação</h3>
+        <p>Informe o token de verificação recebido no e-mail <b>{{ email }}</b>.</p>
+    </div>
+
+    <inova-text-field label="Código" placeholder="Informe o código para realizar a validação" formControlName="code"
+        type="number" />
+
+    <button inovaButton [disabled]="form.invalid">Enviar token de recuperação</button>
+
+    <a routerLink="./auth/login" class="back"><i class='bx bx-arrow-back'></i> <span>Voltar e fazer login</span></a>
+</form>
