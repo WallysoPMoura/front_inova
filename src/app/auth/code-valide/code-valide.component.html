@@ -4,10 +4,14 @@
         <p>Informe o token de verificação recebido no e-mail <b>{{ email }}</b>.</p>
     </div>
 
-    <inova-text-field label="Código" placeholder="Informe o código para realizar a validação" formControlName="code"
-        type="number" />
+    <inova-text-field 
+        label="Código" 
+        placeholder="Informe o código para realizar a validação" 
+        formControlName="token"
+        type="number"
+        [supportText]="{ text: 'O token informado é inválido.', visible: invalid }" />
 
-    <button inovaButton [disabled]="form.invalid">Enviar token de recuperação</button>
+    <button inovaButton [disabled]="form.invalid || form.disabled" (click)="submit()">Enviar token de recuperação</button>
 
     <a routerLink="./auth/login" class="back"><i class='bx bx-arrow-back'></i> <span>Voltar e fazer login</span></a>
 </form>

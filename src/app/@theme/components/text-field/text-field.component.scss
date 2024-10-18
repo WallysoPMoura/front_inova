@@ -19,6 +19,10 @@
         font-family: 'Inter', sans-serif;
         color: #1e1e1e;
 
+        &.error {
+            border-color: #900b09;
+        }
+
         &::placeholder {
             color: #b3b3b3;
         }
@@ -28,6 +32,12 @@
             -webkit-appearance: none;
             margin: 0;
         }
+    }
+
+    small {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.6rem;
+        color: #900b09;
     }
 
 }

@@ -87,8 +87,6 @@
         justify-content: center;
         position: relative;
 
-        
-
         .form {
             display: flex;
             flex-direction: column;
@@ -99,14 +97,23 @@
                 height: 4.7rem;
             }
 
+            .container {
+
+                ::ng-deep form {
+                    min-width: 44.5rem;
+                }
+
+            }
+
         }
 
         .copyright {
             position: absolute;
             bottom: 0;
-            left: 50%;
+    
+            width: 100%;
 
-            transform: translateX(-50%);
+            text-align: center;
 
             span {
                 font-family: 'Inter', sans-serif;
@@ -114,5 +121,29 @@
                 color: #B3B3B3;
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        display: flex;
+        width: 100%;
+
+        .banner {
+            display: none;
+        }
+
+        .auth {
+            width: 100%;
+
+            .form {
+                width: 100%;
+
+                .container ::ng-deep form {
+                    min-width: 100%;
+                }
+            }
+        }
+
     }
 }

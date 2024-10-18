@@ -5,5 +5,4 @@ export type InputStatus = 'error';
 export type SupportText = {
     text: string;
     visible: boolean;
-    status?: InputStatus;
 }

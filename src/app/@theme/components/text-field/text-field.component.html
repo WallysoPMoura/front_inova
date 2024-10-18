@@ -2,10 +2,11 @@
     @if (label) {
         <label>{{ label }}</label>
     }
-    <input #input [type]="type" [placeholder]="placeholder"  (keyup)="change(input)" [(ngModel)]="value">
+
+    <input #input [type]="type" [placeholder]="placeholder"  (keyup)="change(input)" [(ngModel)]="value" [class.error]="supportText?.visible">
 
     @if(supportText && supportText.text && supportText.visible) {
-        <small [ngClass]="supportText.status ?? 'info'">
+        <small>
             {{ supportText.text }}
         </small>
         }
