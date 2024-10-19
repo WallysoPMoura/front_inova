@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, Optional } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Optional, Output } from '@angular/core';
 import { InputType, SupportText } from '../../../@core/types/input.type';
 import { CommonModule } from '@angular/common';
 import { ControlContainer, ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
@@ -30,6 +30,10 @@ export class TextFieldComponent implements ControlValueAccessor {
   @Input() disabled: boolean = false;
   @Input() value?: any;
 
+  @Input() icon?: string;
+
+  @Output() valueChange = new EventEmitter<any>();
+
   changed: any = () => { };
   onTouched: any = () => { };
 
@@ -41,6 +45,7 @@ export class TextFieldComponent implements ControlValueAccessor {
       return;
     }
 
+    this.valueChange.emit(field.value);
     this.changed(field.value);
   }
 

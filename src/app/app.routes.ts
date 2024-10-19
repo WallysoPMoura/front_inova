@@ -4,6 +4,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { CodeValideComponent } from './auth/code-valide/code-valide.component';
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { HomeComponent } from './home/home.component';
+import { authGuard } from './@core/guards/auth.guard';
+import { IdeasCenterComponent } from './home/ideas-center/ideas-center.component';
 
 export const routes: Routes = [
     {
@@ -29,6 +32,17 @@ export const routes: Routes = [
             {
                 path: '**',
                 redirectTo: 'login'
+            }
+        ]
+    },
+    {
+        path: '',
+        component: HomeComponent,
+        canActivate: [authGuard],
+        children: [
+            {
+                path: '',
+                component: IdeasCenterComponent
             }
         ]
     }

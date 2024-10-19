@@ -1,0 +1,27 @@
+<div class="avatar" [class.clickable]="items" (click)="toggle()" #avatar>
+
+    <div class="content" >
+        <!-- Se a imagem não for informada, irá gerar uma imagem de avatar com base no nome do usuário. -->
+        <img [src]="avatarIcon" alt="Avatar Image">
+
+    </div>
+
+    @if(items) {
+        <i class='bx bx-chevron-down'></i>
+    }
+
+</div>
+
+<!-- Itens a serem exibidos no dropdown -->
+<div class="dropdown" #dropdown>
+    <ol>
+        @for (item of items; track $index) {
+        <li (click)="select(item)" [class.disabled]="item.disabled">
+            @if (item.icon) {
+            <i [class]="item.icon"></i>
+            }
+            <span>{{ item.label }}</span>
+        </li>
+        }
+    </ol>
+</div>

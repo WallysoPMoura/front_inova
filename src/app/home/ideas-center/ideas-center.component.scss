@@ -1,0 +1,41 @@
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 2.4fr;
+
+        gap: 1.6rem;
+
+        .filters {
+            display: flex;
+            justify-content: space-between;
+
+            grid-column: 2;
+
+            inova-select,
+            inova-text-field {
+                max-width: 32.5rem;
+            }
+
+            .input-group {
+                display: flex;
+                align-items: center;
+                gap: 1.6rem;
+                width: 100%;
+            }
+
+        }
+
+        .ranks {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+    }
+
+
+}

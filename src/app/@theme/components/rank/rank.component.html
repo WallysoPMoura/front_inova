@@ -1,0 +1,40 @@
+<div class="rank">
+    <div class="header">
+        <span class="title">{{ title }}</span>
+        <span class="subtitle">{{ subtitle }}</span>
+    </div>
+
+    <div class="separator"></div>
+
+    <ol>
+        @for (item of sliced; track $index) {
+            <li>
+                <div class="container">
+                    @switch ($index) {
+                        @case(0) {
+                            <img src="/assets/ranks/gold.svg" alt="Gold Medal">
+                        }
+    
+                        @case (1) {
+                            <img src="/assets/ranks/silver.svg" alt="Silver Medal">
+                        }
+    
+                        @case (2) {
+                            <img src="/assets/ranks/copper.svg" alt="Copper Medal">
+                        }
+                        @default {
+                            <span class="index">{{ $index + 1 }}</span>
+                        }
+                    }
+
+                    <span class="name">{{ item.name }}</span>
+                </div>
+
+                <span class="count">{{ item.count }}</span>
+            </li>
+        }
+        
+    </ol>
+
+    <button inovaButton>Visualizar ranking</button>
+</div>

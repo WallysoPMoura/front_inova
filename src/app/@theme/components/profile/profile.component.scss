@@ -1,0 +1,61 @@
+:host {
+    width: 100%;
+}
+
+.profile {
+    width: 100%;
+
+    background-color: #ffffff;
+
+    border-radius: 1.6rem;
+    overflow: hidden;
+
+    .images {
+        position: relative;
+        width: 100%;
+
+        .banner {
+            height: 12rem;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .profile-picture {
+            position: absolute;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        padding: 8.7rem 2rem 2.4rem 2rem;
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.4rem;
+            color: #000000;
+            line-height: 120%;
+            text-align: center;
+        }
+
+        .tags {
+            display: flex;
+            gap: .8rem;
+
+            margin: 0 auto;
+
+            .tag {
+                padding: .8rem;
+                color: #f5f5f5;
+                border-radius: .8rem;
+                background-color: #2c2c2c;
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<div class="items">
+
+    <div class="container">
+        <inova-profile />
+        <inova-banner />
+    </div>
+    
+    <div class="container">
+        <section class="filters">
+            <div class="input-group">
+                <span>Filtrar por:</span>
+                <inova-select [items]="campaignsItems"/>
+            </div>
+            <inova-text-field placeholder="Busque uma ideia" icon="bx bx-search-alt-2" (valueChange)="searchSubject.next($event)" />
+        </section>
+    </div>
+    
+    <div class="container">
+        <div class="ranks">
+            <inova-rank [items]="more_submited || []" />
+            <inova-rank [items]="more_implemented || []" />
+        </div>
+        <section>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, ab, voluptatum, ratione dolorem itaque non
+            perferendis error magnam laborum voluptatem distinctio illo officia nisi? Quam deserunt hic ipsum mollitia est!
+        </section>
+    </div>
+
+</div>

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { catchError, map, Observable, of, throwError } from 'rxjs';
 
+import { jwtDecode } from "jwt-decode";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -65,12 +67,12 @@ export class AuthService extends ApiService {
   }
 
   get isAuthenticated(): boolean {
-    return !!localStorage?.getItem('token')
+    return !!localStorage?.getItem('token') && jwtDecode(localStorage.getItem('token')!!)?.exp! > Date.now() / 1000
   }
 
   get user() {
     if (!this.isAuthenticated || !localStorage.getItem('user')) {
-      return ''
+      return '';
     }
 
     return JSON.parse(localStorage.getItem('user')!!)

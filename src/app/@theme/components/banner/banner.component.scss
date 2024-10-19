@@ -1,0 +1,48 @@
+.banner {
+    border-radius: 1.6rem;
+    overflow: hidden;
+    height: 31.6rem;
+
+    position: relative;
+
+    img {
+        position: absolute;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+    }
+
+    .informations {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 3.2rem;
+
+        position: absolute;
+        z-index: 1;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            
+            gap: .8rem;
+
+            color: #fff;
+
+            h1 {
+                font-family: 'Inter', sans-serif;
+                font-size: 7.2rem;
+            }
+
+            h3 {
+                font-family: 'Inter', sans-serif;
+                font-size: 3.2rem;
+            }
+        }
+    }
+}

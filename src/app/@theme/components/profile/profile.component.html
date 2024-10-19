@@ -1,0 +1,19 @@
+<div class="profile">
+    <div class="images">
+        <img src="https://picsum.photos/500/200" alt="banner" class="banner">
+        <img src="https://picsum.photos/140/140" alt="Profile Picture" class="profile-picture">
+    </div>
+
+    <div class="container">
+        <h3>{{ authService.user.name }}</h3>
+
+        <div class="tags">
+            @for (tag of tags; track $index) {
+            <div class="tag">
+                <span>{{ tag }}</span>
+            </div>
+            }
+        </div>
+    </div>
+
+</div>

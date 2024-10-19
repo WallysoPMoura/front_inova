@@ -1,0 +1,16 @@
+<div class="select" (click)="expand()" [class.expanded]="expanded" [class.disabled]="disabled" >
+    <span class="label-value" [class.value]="value != null" [innerHTML]="valueOrPlaceholder"></span>
+    <i class='bx bx-chevron-down'></i>
+</div>
+
+<div #select class="items">
+    <div class="container">
+        <ol>
+            @for (item of items; track $index) {
+            <li (click)="change(item.value)" [class.selected]="value == item.value">
+                <span>{{ item?.label }}</span>
+            </li>
+            }
+        </ol>
+    </div>
+</div>

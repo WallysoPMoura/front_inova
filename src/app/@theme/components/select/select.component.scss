@@ -1,0 +1,120 @@
+:host {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.select {
+    position: relative;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+
+    padding: 1.2rem 3.6rem 1.2rem 1.6rem;
+
+    background-color: #fff;
+    border: .1rem solid #d9d9d9;
+
+    border-radius: .8rem;
+
+    
+
+    span {
+        color: #b3b3b3;
+
+        &.value {
+            color: #1e1e1e;
+        }
+    }
+
+    
+
+    i {
+        position: absolute;
+        right: 1.6rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        font-size: 2.5rem;
+    }
+}
+
+.items {
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+
+    background-color: #fff;
+    border-radius: .8rem;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    box-sizing: border-box;
+
+    .container {
+        padding: 1rem;
+
+        ol {
+            display: flex;
+            flex-direction: column;
+
+            gap: .4rem;
+            padding: 0rem .8rem;
+
+            max-height: 25.6rem;
+            overflow-y: auto;
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                font-family: "Inter", sans-serif;
+                font-size: 1.6rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                /* 2.4rem */
+
+                color: #1e1e1e;
+
+                padding: .8rem;
+
+                border-radius: .5rem;
+
+                cursor: pointer;
+
+                transition: all .3s ease-in-out;
+
+                &:hover,
+                &.selected {
+                    background-color: #f1f1f1;
+                }
+            }
+
+
+            &::-webkit-scrollbar {
+                width: .4rem;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: #f1f1f1;
+                border-radius: 1rem;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: #f1f1f1;
+            }
+
+        }
+    }
+
+}

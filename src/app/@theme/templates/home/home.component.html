@@ -1,0 +1,17 @@
+<div class="navbar">
+    <img class="logo" src="/assets/logo.png" alt="Logo">
+
+    <div class="container">
+        <div class="items">
+            <a routerLink="" routerLinkActive="active">Central de ideias</a>
+            <a routerLink="./auth/login" routerLinkActive="active">Ranking de ideias</a>
+            <a routerLink="./auth/login" routerLinkActive="active">Campanhas</a>
+        </div>
+
+        <inova-avatar label="Wallyso Moura" [items]="[{ label: 'Sair', value: 'logout', icon: 'bx bx-log-out' }]" (onSelect)="logout($event)" />
+    </div>
+</div>
+
+<main>
+    <ng-content />
+</main>
