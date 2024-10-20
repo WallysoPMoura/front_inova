@@ -1,0 +1,22 @@
+<section>
+    <button class="previous" [disabled]="currentPage === 1" (click)="previous()">
+        <i class='bx bx-left-arrow-alt' ></i>
+        <span>Anterior</span>
+    </button>
+    <aside>
+        <ng-container *ngFor="let page of pages">
+            <button *ngIf="page.label !== '...'; else more" 
+                    [class.active]="page.active" 
+                    (click)="changePage(page.label)">
+                {{ page.label }}
+            </button>
+            <ng-template #more>
+                <span>{{ page.label }}</span>
+            </ng-template>
+        </ng-container>
+    </aside>
+    <button class="next" [disabled]="currentPage === maxPage" (click)="next()">
+        <span>Próxima</span>
+        <i class='bx bx-right-arrow-alt'></i>
+    </button>
+</section>

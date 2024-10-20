@@ -10,20 +10,29 @@
         @for (item of sliced; track $index) {
             <li>
                 <div class="container">
+
                     @switch ($index) {
                         @case(0) {
-                            <img src="/assets/ranks/gold.svg" alt="Gold Medal">
+                            <div class="rank-container">
+                                <img src="/assets/ranks/gold.svg" alt="Gold Medal">
+                            </div>
                         }
     
                         @case (1) {
-                            <img src="/assets/ranks/silver.svg" alt="Silver Medal">
+                            <div class="rank-container">
+                                <img src="/assets/ranks/silver.svg" alt="Silver Medal">
+                            </div>
                         }
     
                         @case (2) {
-                            <img src="/assets/ranks/copper.svg" alt="Copper Medal">
+                            <div class="rank-container">
+                                <img src="/assets/ranks/copper.svg" alt="Copper Medal">
+                            </div>
                         }
                         @default {
-                            <span class="index">{{ $index + 1 }}</span>
+                            <div class="rank-container">
+                                <span class="index">{{ $index + 1 }}</span>
+                            </div>
                         }
                     }
 

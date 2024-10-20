@@ -3,9 +3,9 @@
 
     <div class="container">
         <div class="items">
-            <a routerLink="" routerLinkActive="active">Central de ideias</a>
-            <a routerLink="./auth/login" routerLinkActive="active">Ranking de ideias</a>
-            <a routerLink="./auth/login" routerLinkActive="active">Campanhas</a>
+            <a routerLink="/ideas-center" routerLinkActive="active">Central de ideias</a>
+            <a routerLink="/rank" routerLinkActive="active">Ranking de ideias</a>
+            <a routerLink="/campaigns" routerLinkActive="active">Campanhas</a>
         </div>
 
         <inova-avatar label="Wallyso Moura" [items]="[{ label: 'Sair', value: 'logout', icon: 'bx bx-log-out' }]" (onSelect)="logout($event)" />

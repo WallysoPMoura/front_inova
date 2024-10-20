@@ -38,9 +38,11 @@
             top: 50%;
             left: 0;
             right: 0;
-            border-top: .1rem solid #D9D9D9; /* Linha da borda */
-            transform: translateY(-50%); /* Centraliza a borda no meio verticalmente */
-          }
+            border-top: .1rem solid #D9D9D9;
+            /* Linha da borda */
+            transform: translateY(-50%);
+            /* Centraliza a borda no meio verticalmente */
+        }
     }
 
     ol {
@@ -54,9 +56,16 @@
             padding: 1.2rem 1.6rem;
 
             .container {
-                display: flex;
-                align-items: center;
+                display: grid;
+                justify-content: center;
+                grid-template-columns: 2.4rem auto;
                 gap: 1.2rem;
+
+                .rank-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
                 .index {
                     font-family: 'Inter', sans-serif;

@@ -1,0 +1,19 @@
+<div class="details">
+
+    <div class="header">
+        <div class="container">
+            <span class="title">{{ title }}</span>
+        </div>
+
+        <button class="close" (click)="dialogRef.close()">
+            <i class='bx bx-x'></i>
+        </button>
+
+    </div>
+
+    <p>{{ message }}</p>
+
+    <div class="back-container">
+        <button class="back" (click)="dialogRef.close()">{{ buttonLabel }}</button>
+    </div>
+</div>

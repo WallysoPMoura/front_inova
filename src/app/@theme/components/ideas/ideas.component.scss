@@ -1,0 +1,101 @@
+.ideas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    background-color: #fff;
+    padding: 3.2rem;
+
+    border-radius: 1.6rem;
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+
+        .title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            line-height: 120%;
+            color: #1e1e1e;
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 120%;
+            color: #1e1e1e;
+        }
+
+    }
+
+    ol {
+
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        li {
+
+            display: flex;
+            gap: 2.4rem;
+
+            padding: 2.4rem;
+
+            border: .1rem solid #d9d9d9;
+            border-radius: .8rem;
+
+            img {
+                height: 16rem;
+                width: 16rem;
+                object-fit: cover;
+                object-position: center;
+
+                border-radius: .8rem;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                gap: 1.6rem;
+
+                .infos {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .8rem;
+
+                    h2 {
+                        font-family: 'Inter', sans-serif;
+                        font-weight: 500;
+                        font-size: 2.4rem;
+                        color: #1e1e1e;
+                    }
+
+                    p {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        /* Número de linhas visíveis */
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        /* Adiciona os três pontos (...) */
+
+                        font-family: 'Inter', sans-serif;
+                        font-weight: 400;
+                        font-size: 1.6rem;
+                        color: #757575;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    inova-paginate {
+        display: block;
+        margin: 0 auto;
+    }
+}

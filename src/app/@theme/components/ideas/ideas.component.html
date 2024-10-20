@@ -1,0 +1,27 @@
+<div class="ideas">
+
+    <div class="header">
+        <span class="title">{{ title }}</span>
+        <span class="subtitle">{{ subtitle }}</span>
+    </div>
+
+    <ol>
+        @for (idea of paginatedIdeas?.data?.data || []; track $index) {
+        <li>
+            <img [src]="idea.campaign?.thumbnail" alt="Campaign">
+
+            <div class="container">
+                <div class="infos">
+                    <h2>{{ idea.title }}</h2>
+                    <p>{{ idea.idea }}</p>
+                </div>
+
+                <button inovaButton status="outline" (click)="openDetails(idea)">Visualizar ideia</button>
+            </div>
+        </li>
+        }
+    </ol>
+
+    <inova-paginate [pagination]="paginatedIdeas" (pageChange)="pageChange.emit($event)" />
+
+</div>

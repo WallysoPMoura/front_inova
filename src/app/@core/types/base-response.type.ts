@@ -6,7 +6,7 @@ export type BaseResponse<T> = {
 export type BasePaginateResponse<T> = {
     success: boolean;
     data: {
-        data: T[]
+        data: T
         page: number,
         perPage: number,
         total: number

@@ -1,15 +1,15 @@
 <div class="banner">
-    <img src="https://picsum.photos/1280/720" alt="Banner">
+    <img [src]="campaign?.thumbnail" alt="Banner">
 
     <div class="informations">
 
         <div class="container">
-            <h1>{{ title }}</h1>
-            <h3>{{ subtitle }}</h3>
+            <h1>{{ campaign?.name }}</h1>
+            <h3>{{ campaign?.slug }} {{ campaign?.id }}</h3>
         </div>
 
         @if (type === 'center') {
-            <button inovaButton [routerLink]="campaignUrl">Participar da campanha</button>
+            <button inovaButton [routerLink]="['/campaigns', campaign?.id]">Participar da campanha</button>
         }
     </div>
 </div>

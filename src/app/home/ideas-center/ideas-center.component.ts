@@ -7,11 +7,14 @@ import { RankItem } from '../../@core/types/rank.type';
 import { BasePaginateResponse, BaseResponse } from '../../@core/types/base-response.type';
 import { LoadingService } from '../../@core/services/loading.service';
 import { TextFieldComponent } from '../../@theme/components/text-field/text-field.component';
-import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
-import { HotToastService } from '@ngxpert/hot-toast';
+import { debounceTime, distinctUntilChanged, map, Subject } from 'rxjs';
 import { Idea } from '../../@core/types/idea.type';
 import { Campaign } from '../../@core/types/campaign.type';
 import { SelectComponent } from '../../@theme/components/select/select.component';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import * as _ from 'lodash';
+import { IdeasComponent } from '../../@theme/components/ideas/ideas.component';
 
 @Component({
   selector: 'inova-ideas-center',
@@ -21,7 +24,12 @@ import { SelectComponent } from '../../@theme/components/select/select.component
     RankComponent,
     BannerComponent,
     TextFieldComponent,
-    SelectComponent
+    SelectComponent,
+
+    IdeasComponent,
+
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     LoadingService
@@ -33,20 +41,25 @@ export class IdeasCenterComponent {
 
   more_submited?: RankItem[];
   more_implemented?: RankItem[];
-  ideas?: BasePaginateResponse<Idea[]>;
+  paginatedIdeas?: BasePaginateResponse<Idea[]>;
   campaigns?: Campaign[];
 
-  searchSubject: Subject<string> = new Subject<string>();
+  featured_campaign?: Campaign;
+
+  searchSubject: Subject<any> = new Subject<any>();
 
   page: number = 1;
 
+  form!: FormGroup;
+
   constructor(
-    private apiService: ApiService, 
+    private apiService: ApiService,
     private loadingService: LoadingService,
-    private toastService: HotToastService
+    private formBuilder: FormBuilder
   ) {
     this.loadAll();
     this.handleSubject();
+    this.buildForm();
   }
 
   private async loadAll() {
@@ -55,8 +68,9 @@ export class IdeasCenterComponent {
     await Promise.all([
       this.submittedPromise.then((result) => this.more_submited = result),
       this.implementedPromise.then((result) => this.more_implemented = result),
-      this.ideasPromise.then((result) => this.ideas = result),
-      this.campaignsPromise.then((result) => this.campaigns = result)
+      this.campaignsPromise.then((result) => this.campaigns = result),
+      this.featuredCampaign.then((result) => this.featured_campaign = result),
+      this.getIdeasPromise().then((result) => this.paginatedIdeas = result),
     ]).then(() => {
       this.loadingService.hide();
     });
@@ -82,9 +96,9 @@ export class IdeasCenterComponent {
     });
   }
 
-  private get ideasPromise(): Promise<BasePaginateResponse<Idea[]>> {
+  private getIdeasPromise(filters?: any): Promise<BasePaginateResponse<Idea[]>> {
     return new Promise((resolve) => {
-      this.apiService.get('idea', { page: this.page }).subscribe({
+      this.apiService.get('idea', { page: this.page, ...filters}).subscribe({
         next: (result: BasePaginateResponse<Idea[]>) => {
           resolve(result);
         }
@@ -102,24 +116,24 @@ export class IdeasCenterComponent {
     });
   }
 
-  handleSubject() {
-    this.searchSubject
-      .pipe(debounceTime(1000), distinctUntilChanged())
-      .subscribe((value) => this.search(value));
+  private get featuredCampaign(): Promise<Campaign> {
+    return new Promise((resolve) => {
+      this.apiService.get('campaign/random').subscribe({
+        next: (result: BaseResponse<Campaign>) => {
+          resolve(result.data);
+        }
+      });
+    });
   }
 
-  search(event: any) {
-    this.loadingService.show()
-    this.apiService.get(`idea/search`, { search: event }).subscribe({
-      next: (result: BasePaginateResponse<Idea[]>) => {
-        this.ideas = result;
-        this.loadingService.hide();
-      },
-      error: () => {
-        this.loadingService.hide();
-        this.toastService.error('Erro na conexão com o servidor');
-      }
-    })
+  handleSubject() {
+    this.searchSubject
+      .pipe(
+        debounceTime(1000),
+        distinctUntilChanged(),
+        map((value) => _.omitBy(value, _.isNull))
+      )
+      .subscribe((value: any) => this.getIdeasPromise(value).then((result) => this.paginatedIdeas = result));
   }
 
   get campaignsItems() {
@@ -133,6 +147,20 @@ export class IdeasCenterComponent {
         value: item.id
       }
     })
+  }
+
+  private buildForm() {
+    this.form = this.formBuilder.group({
+      campaignId: [null],
+      idea: [null]
+    });
+
+    this.form.valueChanges.subscribe((value) => this.searchSubject.next(value));
+  }
+
+  changePage(page: number) {
+    this.page = page;
+    this.getIdeasPromise(this.form.value).then((result) => this.paginatedIdeas = result);
   }
 
 }

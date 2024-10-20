@@ -70,5 +70,12 @@ export class ApiService {
     return headers;
   }
 
+  private serializeParams(params: any): any {
+    if (params && params.filters) {
+      // Converte o campo 'filters' para string JSON
+      return { ...params, filters: JSON.stringify(params.filters) };
+    }
+    return params;
+  }
 
 }

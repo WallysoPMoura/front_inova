@@ -4,6 +4,16 @@ export type Idea = {
     campaignId: number,
     departmentId: number,
     typeOfIdeaId: number,
+    title: string,
     idea: string,
     implemented: boolean,
+    campaign?: {
+        thumbnail: string
+    },
+    department?: {
+        name: string
+    },
+    typeOfIdea?: {
+        name: string
+    }
 }

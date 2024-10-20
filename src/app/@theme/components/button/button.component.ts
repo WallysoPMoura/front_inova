@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: '[inovaButton]',
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
+
+  @Input() status: 'default' | 'outline' = 'default';
+
+  @HostBinding('class') get classes(): string {
+    return `${this.status}`;
+  }
 
 }

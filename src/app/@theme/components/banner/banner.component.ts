@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { BannerType } from '../../../@core/types/banner.type';
 import { ButtonComponent } from '../button/button.component';
 import { RouterLink } from '@angular/router';
+import { Campaign } from '../../../@core/types/campaign.type';
 
 @Component({
   selector: 'inova-banner',
@@ -12,9 +13,11 @@ import { RouterLink } from '@angular/router';
 })
 export class BannerComponent {
 
+  @Input() campaign?: Campaign;
+
   @Input() type: BannerType = 'center';
-  @Input() title?: string = 'Sustentabilidade';
-  @Input() subtitle?: string = 'Construa o futuro da empresa';
-  @Input() campaignUrl?: string;
+  // @Input() title?: string = 'Sustentabilidade';
+  // @Input() subtitle?: string = 'Construa o futuro da empresa';
+  // @Input() campaignUrl?: string;
 
 }

@@ -1,0 +1,23 @@
+<div class="details">
+
+    <div class="header">
+        <div class="container">
+            <span class="title">{{ idea.title }}</span>
+            <div class="status">Em análise</div>
+        </div>
+
+        <button class="close" (click)="dialogRef.close()">
+            <i class='bx bx-x'></i>
+        </button>
+
+    </div>
+
+    <div class="categorys">
+        <span><b>Departamento:</b> {{ idea.department?.name }}</span>
+        <span><b>Tipo de ideia:</b> {{ idea.typeOfIdea?.name }}</span>
+    </div>
+
+    <p><b>Ideia:</b> {{ idea.idea }}</p>
+
+    <button class="back" (click)="dialogRef.close()">Voltar para central de ideias</button>
+</div>

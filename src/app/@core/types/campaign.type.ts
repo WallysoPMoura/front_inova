@@ -5,4 +5,5 @@ export type Campaign = {
     description: string;
     startDate: string;
     endDate: string;
+    thumbnail: string;
 }

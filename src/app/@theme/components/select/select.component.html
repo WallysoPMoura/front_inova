@@ -1,9 +1,15 @@
-<div class="select" (click)="expand()" [class.expanded]="expanded" [class.disabled]="disabled" >
-    <span class="label-value" [class.value]="value != null" [innerHTML]="valueOrPlaceholder"></span>
-    <i class='bx bx-chevron-down'></i>
+<div class="input-group">
+    @if(label) {
+        <label>{{ label }}</label>
+    }
+
+    <div class="select" (click)="expand()" [class.expanded]="expanded" [class.disabled]="disabled" >
+        <span class="label-value" [class.value]="value != null" [innerHTML]="valueOrPlaceholder"></span>
+        <i class='bx bx-chevron-down'></i>
+    </div>
 </div>
 
-<div #select class="items">
+<div #select class="items" [class.label]="label">
     <div class="container">
         <ol>
             @for (item of items; track $index) {

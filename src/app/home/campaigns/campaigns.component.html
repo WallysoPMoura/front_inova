@@ -1,0 +1,85 @@
+<div class="campaign">
+    <h1>Campanhas</h1>
+
+    <inova-banner type="info" [campaign]="campaign" />
+
+    <div class="form">
+        <div class="description">
+
+            <div class="header">
+                <h1>{{ campaign?.name }}</h1>
+                <p>{{ campaign?.slug }}</p>
+            </div>
+
+            <div class="container">
+
+                <section>
+                    <h1>O que é {{ campaign?.name }}</h1>
+                    <p>{{ campaign?.description }}</p>
+                </section>
+
+                <section>
+                    <h1>Como posso participar?</h1>
+                    <p>
+                        Para participar do nosso Programa de ideias, incentivamos você a colaborar com ideias que possam
+                        gerar melhorias em nossos processos e operações. O primeiro passo é observar o cenário atual e
+                        identificar oportunidades de aprimoramento. Após refletir sobre a viabilidade e os benefícios da
+                        sua ideia, é importante estruturá-la da melhor forma possível, considerando os impactos
+                        positivos para a empresa.
+                        <br> <br>
+                        Em seguida, preencha o formulário disponível, descrevendo sua proposta com clareza. Quanto mais
+                        detalhada for a apresentação, maiores as chances de sua ideia ser avaliada e implementada.
+                        Lembre-se de que todas as contribuições são bem-vindas, pois acreditamos que a inovação começa
+                        dentro de casa, com a participação de cada um.
+                        <br> <br>
+                        Contamos com você para tornar nossa empresa ainda mais eficiente e sustentável!
+                    </p>
+                </section>
+
+                <section>
+                    <h1>Qual o prazo para o final da campanha?</h1>
+                    <p>
+                        A campanha terá duração de 30 dias, ocorrendo no período de <b>{{ startDate }} a {{ endDate }}</b>.
+                    </p>
+                </section>
+
+            </div>
+
+        </div>
+        <form [formGroup]="form">
+            <div class="header">
+                <h1>Formulário de envio de ideia</h1>
+                <p>Preencha todos os campos para enviar sua ideia</p>
+            </div>
+
+            <div class="container">
+
+                <inova-text-field label="Nome completo" placeholder="Informe seu nome completo" [disabled]="true"
+                    [value]="userName" />
+
+                <div class="row">
+                    <inova-select placeholder="Selecione seu departamento" label="Departamento"
+                        [items]="departamentItems || []" formControlName="departmentId" />
+                    <inova-select placeholder="Selecione o tipo da ideia" label="Tipo de ideia"
+                        [items]="typeOfIdeaItems || []" formControlName="typeOfIdeaId" />
+                </div>
+
+                <inova-text-field label="Título da ideia" placeholder="Informe o título da sua ideia"
+                    formControlName="title" />
+
+                <inova-text-field type="textarea" label="Ideia" placeholder="Descreva sua ideia"
+                    formControlName="idea" />
+            </div>
+
+            <div class="agree">
+                <inova-checkbox formControlName="agree" />
+                <div class="label">
+                    <span>Eu estou de acordo com o termo de regulamento</span>
+                    <a (click)="openTerms()">Termo de regulamento</a>
+                </div>
+            </div>
+
+            <button inovaButton [disabled]="form.invalid || form.disabled" (click)="submit()">Enviar ideia</button>
+        </form>
+    </div>
+</div>

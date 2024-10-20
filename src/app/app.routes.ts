@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { HomeComponent } from './home/home.component';
 import { authGuard } from './@core/guards/auth.guard';
 import { IdeasCenterComponent } from './home/ideas-center/ideas-center.component';
+import { CampaignsComponent } from './home/campaigns/campaigns.component';
 
 export const routes: Routes = [
     {
@@ -41,8 +42,16 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children: [
             {
-                path: '',
+                path: 'ideas-center',
                 component: IdeasCenterComponent
+            },
+            {
+                path: 'campaigns/:campaignId',
+                component: CampaignsComponent
+            },
+            {
+                path: '**',
+                redirectTo: 'ideas-center'
             }
         ]
     }
