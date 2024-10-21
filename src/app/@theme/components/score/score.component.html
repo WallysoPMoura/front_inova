@@ -1,0 +1,28 @@
+<div class="score">
+
+    <div class="title">
+        <h3>Sua participação anual no programa de ideias</h3>
+    </div>
+
+    <div class="graphic-container">
+        <div class="graphic">
+            <div class="segment green"></div>
+            <div class="segment orange"></div>
+            <div class="segment yellow"></div>
+            <div class="segment red"></div>
+
+            <div class="indicator">
+                @if (rankUser != null) {
+                <h1>{{ rankUser.total }}</h1>
+                }
+            </div>
+        </div>
+
+        <div class="infos">
+            <h3>Sua participação é <span [ngClass]="classFromScore">{{ labelFromScore }}</span></h3>
+            <p>Ano vigente de {{ year }} </p>
+        </div>
+
+    </div>
+
+</div>

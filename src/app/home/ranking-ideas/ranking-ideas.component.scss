@@ -1,0 +1,46 @@
+.ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    h1 {
+        font-family: 'Inter', sans-serif;
+        font-size: 3.2rem;
+        font-weight: 400;
+        line-height: 120%;
+        color: #303030
+    }
+
+    .graphics {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 1.6rem;
+    }
+
+    .filters {
+        display: flex;
+        justify-content: space-between;
+
+        grid-column: 2;
+
+        inova-select,
+        inova-text-field {
+            max-width: 32.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            width: 100%;
+        }
+
+    }
+
+    .ranks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.6rem;
+    }
+
+}

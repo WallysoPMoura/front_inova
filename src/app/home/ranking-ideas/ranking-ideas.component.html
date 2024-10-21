@@ -1,0 +1,22 @@
+<div class="ranking">
+    <h1>Ranking de ideias</h1>
+
+    <div class="graphics">
+        <inova-ideas-submitted [rankUser]="rank_user" />
+        <inova-score [rankUser]="rank_user" />
+    </div>
+
+    <div class="filters">
+        <div class="input-group">
+            <span>Filtrar por:</span>
+            <inova-select [items]="campaignsItems" formControlName="campaignId" />
+        </div>
+    </div>
+
+    <div class="ranks">
+        <inova-rank [items]="more_submited || []" title="Ranking" subtitle="Colaboradores que mais enviaram ideias" />
+        <inova-rank [items]="more_implemented || []" title="Ranking"
+            subtitle="Colaboradores com mais ideias implementadas" />
+        <inova-rank [items]="rank_evaluations || []" title="Ranking" subtitle="Ideias com maiores notas na campanha" />
+    </div>
+</div>

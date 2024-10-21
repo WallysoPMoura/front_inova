@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { authGuard } from './@core/guards/auth.guard';
 import { IdeasCenterComponent } from './home/ideas-center/ideas-center.component';
 import { CampaignsComponent } from './home/campaigns/campaigns.component';
+import { RankingIdeasComponent } from './home/ranking-ideas/ranking-ideas.component';
 
 export const routes: Routes = [
     {
@@ -44,6 +45,10 @@ export const routes: Routes = [
             {
                 path: 'ideas-center',
                 component: IdeasCenterComponent
+            },
+            {
+                path: 'ranking-ideas',
+                component: RankingIdeasComponent
             },
             {
                 path: 'campaigns/:campaignId',

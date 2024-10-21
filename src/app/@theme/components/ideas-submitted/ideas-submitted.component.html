@@ -1,0 +1,43 @@
+<div class="submited">
+
+    <div class="container">
+        <div class="header">
+            <h2>Ideias enviadas</h2>
+            <div class="input">
+                <inova-select [items]="monthsItems" [value]="currentMonth" [disabled]="true" />
+            </div>
+        </div>
+
+        <div class="count-container">
+            <span>{{ rankUser?.total }}</span>
+            <div class="badge success"> {{ rankUser?.percentageTotal! > 0 ? '+' : '-' }} {{ (rankUser?.percentageTotal! / 100) | percent }}</div>
+        </div>
+
+        <div class="separator">
+            <div class="purple"></div>
+            <div class="aqua"></div>
+            <div class="yellow"></div>
+            <div class="green"></div>
+        </div>
+
+    </div>
+
+    <div class="infos">
+
+        @for (typeOfIdea of rankUser?.typeOfIdeas; track $index) {
+            <div class="card">
+                <div class="title">
+                    <div class="indicator purple"></div>
+                    <span>{{ typeOfIdea.name }}</span>
+                </div>
+    
+                <div class="info">
+                    <h3>{{ typeOfIdea.count }}</h3>
+                    <div class="badge" [ngClass]="typeOfIdea.percentage >= 0 ? 'success' : 'danger'">{{ rankUser?.percentageTotal! > 0 ? '+' : '-' }} {{ (typeOfIdea.percentage / 100) | percent }}</div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
