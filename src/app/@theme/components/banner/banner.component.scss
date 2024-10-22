@@ -26,10 +26,13 @@
         left: 50%;
         transform: translate(-50%, -50%);
 
+        width: 100%;
+
         .container {
             display: flex;
             flex-direction: column;
             
+
             gap: .8rem;
 
             color: #fff;
@@ -44,5 +47,25 @@
                 font-size: 3.2rem;
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+
+        img {
+            height: 100%;
+        }
+
+        .informations .container {
+            h1 {
+                font-size: 4.8rem;
+            }
+    
+            h3 {
+                font-size: 2.4rem;
+            }
+        }
+
     }
 }

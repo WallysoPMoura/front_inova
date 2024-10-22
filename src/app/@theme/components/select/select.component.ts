@@ -1,11 +1,12 @@
 import { Component, ElementRef, EventEmitter, forwardRef, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { SelectItem } from '../../../@core/types/select.type';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'inova-select',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -25,6 +26,8 @@ export class SelectComponent implements ControlValueAccessor {
   @Input() placeholder: string = 'Selecione';
   @Input() disabled: boolean = false;
   @Input() value?: any;
+
+  @Input() maxHeight?: number;
 
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
 
@@ -62,7 +65,7 @@ export class SelectComponent implements ControlValueAccessor {
       content.style.maxHeight = '0px';
       content.classList.remove('expanded');
     } else {
-      content.style.maxHeight = (content.scrollHeight + 10) + 'px';
+      content.style.maxHeight = this.maxHeight ? this.maxHeight + 'rem' : (content.scrollHeight + 10) + 'px';
       content.classList.add('expanded');
     }
 

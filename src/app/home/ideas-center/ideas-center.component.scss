@@ -39,3 +39,26 @@
 
 
 }
+
+@media (max-width: 768px) {
+
+    .items {
+
+        .container {
+            display: flex;
+            flex-direction: column;
+
+            .filters {
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+
+                .input-group {
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+}

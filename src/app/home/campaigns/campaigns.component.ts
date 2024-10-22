@@ -68,8 +68,12 @@ export class CampaignsComponent {
       agree: [null, [Validators.required, Validators.requiredTrue]],
     });
 
+    if(authService.role == 'ADMIN') {
+      router.navigate(['/ideas-center']);
+      return;
+    }
+
     this.loadAll();
-    this.form.get('campaignId')?.setValue(this.campaignId);
   }
 
   submit() {
@@ -99,10 +103,6 @@ export class CampaignsComponent {
 
   }
 
-  get campaignId() {
-    return this.activatedRoute.snapshot.paramMap.get('campaignId')
-  }
-
   get userName() {
     return this.authService.user?.name
   }
@@ -113,7 +113,10 @@ export class CampaignsComponent {
     await Promise.all([
       this.departamentPromise.then((result) => this.department = result),
       this.typeOfIdeaPromise.then((result) => this.typeOfIdea = result),
-      this.campaignPromise.then((result) => this.campaign = result)
+      this.campaignPromise.then((result) => {
+        this.campaign = result
+        this.form.get('campaignId')?.setValue(result.id);
+      })
     ]).then(() => {
       this.loadingService.hide();
 
@@ -149,7 +152,7 @@ export class CampaignsComponent {
 
   private get campaignPromise(): Promise<Campaign> {
     return new Promise((resolve) => {
-      this.apiService.get(`campaign/${this.campaignId}`).subscribe({
+      this.apiService.get(`campaign/random`).subscribe({
         next: (result: BaseResponse<Campaign>) => {
           resolve(result.data);
         }

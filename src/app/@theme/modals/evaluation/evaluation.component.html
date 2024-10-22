@@ -1,0 +1,22 @@
+<div class="details">
+
+    <div class="header">
+        <span class="title">{{ idea.title }}</span>
+        <div class="status">Em aberto</div>
+    </div>
+
+    <div class="container">
+        <p>Preencha todos os campos para avaliar a ideia</p>
+
+        <form [formGroup]="form">
+            <div class="row">
+                <inova-select [items]="notes" label="Nota de inovação" formControlName="inovation" [maxHeight]="15" />
+                <inova-select [items]="notes" label="Nota de facilidade de implementação" [maxHeight]="15" formControlName="implementation" />
+            </div>
+
+            <inova-text-field label="Observação" type="textarea" formControlName="observation" placeholder="Observação" />
+        </form>
+    </div>
+
+    <button class="back" (click)="evaluate()" [disabled]="form.invalid || form.disabled">Avaliar ideia</button>
+</div>

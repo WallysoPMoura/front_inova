@@ -26,6 +26,9 @@
             top: 50%;
             left: 50%;
             transform: translateX(-50%);
+
+            height: 14rem;
+            width: 14rem;
         }
     }
 
@@ -58,4 +61,26 @@
             }
         }
     }
+}
+
+@media (max-width: 768px) {
+
+    .profile {
+
+        .images {
+
+            .banner {
+                height: 100%;
+            }
+    
+        }
+
+        .container {
+            padding: 6rem 2rem 2.4rem 2rem;
+        }
+
+    }
+
+    
+
 }

@@ -8,8 +8,8 @@
             <h3>{{ campaign?.slug }} {{ campaign?.id }}</h3>
         </div>
 
-        @if (type === 'center') {
-            <button inovaButton [routerLink]="['/campaigns', campaign?.id]">Participar da campanha</button>
+        @if (type === 'center' && authService.role == 'USER') {
+            <button inovaButton routerLink="/campaigns">Participar da campanha</button>
         }
     </div>
 </div>

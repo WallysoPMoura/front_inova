@@ -21,7 +21,13 @@
         color: #ef892a;
     }
 
-    &:hover:not(:disabled) {
+    &.secondary {
+        background-color: transparent;
+        border-color: transparent;
+        color: #303030;
+    }
+
+    &:hover:not(:disabled):not(.secondary) {
         background-color: #ec801a;
 
         &.outline {

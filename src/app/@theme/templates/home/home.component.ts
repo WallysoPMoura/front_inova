@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, ElementRef, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AvatarComponent } from '../../components/avatar/avatar.component';
 import { AuthService } from '../../../@core/services/auth.service';
@@ -15,9 +15,11 @@ import { AvatarItem } from '../../../@core/types/avatar.type';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router) { }
+
+  ngAfterViewInit(): void {}
 
   logout(event: AvatarItem) {
 

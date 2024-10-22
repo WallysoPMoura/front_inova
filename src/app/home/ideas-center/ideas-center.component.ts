@@ -15,6 +15,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 
 import * as _ from 'lodash';
 import { IdeasComponent } from '../../@theme/components/ideas/ideas.component';
+import { AuthService } from '../../@core/services/auth.service';
 
 @Component({
   selector: 'inova-ideas-center',
@@ -55,7 +56,8 @@ export class IdeasCenterComponent {
   constructor(
     private apiService: ApiService,
     private loadingService: LoadingService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public authService: AuthService
   ) {
     this.loadAll();
     this.handleSubject();

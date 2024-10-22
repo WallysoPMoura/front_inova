@@ -17,11 +17,11 @@
 
     <div class="container">
         <div class="ranks">
-            <inova-rank [items]="more_submited || []" />
-            <inova-rank [items]="more_implemented || []" />
+            <inova-rank [items]="more_submited || []" title="Ranking" subtitle="Colaboradores que mais enviaram ideias" />
+            <inova-rank [items]="more_implemented || []" title="Ranking" subtitle="Colaboradores com mais ideias implementadas" />
         </div>
 
-        <inova-ideas title="Ideias enviadas" subtitle="Visualize todas suas ideias enviadas" [paginatedIdeas]="paginatedIdeas" (pageChange)="changePage($event)" />
+        <inova-ideas title="Ideias enviadas" [subtitle]="authService.role == 'USER' ? 'todas suas ideias enviadas' : 'Avalie as ideias enviadas na campanha'" [paginatedIdeas]="paginatedIdeas" (pageChange)="changePage($event)" />
     </div>
 
 </div>

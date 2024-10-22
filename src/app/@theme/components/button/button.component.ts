@@ -9,7 +9,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 })
 export class ButtonComponent {
 
-  @Input() status: 'default' | 'outline' = 'default';
+  @Input() status: 'default' | 'outline' | 'secondary' = 'default';
 
   @HostBinding('class') get classes(): string {
     return `${this.status}`;

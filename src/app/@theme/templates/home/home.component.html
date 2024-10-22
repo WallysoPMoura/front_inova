@@ -1,11 +1,14 @@
 <div class="navbar">
-    <img class="logo" src="/assets/logo.png" alt="Logo">
+    <img class="logo" src="/assets/logo.png" alt="Logo" routerLink="/">
 
     <div class="container">
         <div class="items">
             <a routerLink="/ideas-center" routerLinkActive="active">Central de ideias</a>
             <a routerLink="/ranking-ideas" routerLinkActive="active">Ranking de ideias</a>
-            <a routerLink="/campaigns" routerLinkActive="active">Campanhas</a>
+
+            @if(authService.role == 'USER') {
+                <a routerLink="/campaigns" routerLinkActive="active">Campanhas</a>
+            }
         </div>
 
         <inova-avatar label="Wallyso Moura" [items]="[{ label: 'Sair', value: 'logout', icon: 'bx bx-log-out' }]" (onSelect)="logout($event)" />

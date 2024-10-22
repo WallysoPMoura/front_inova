@@ -19,3 +19,9 @@ body {
     font-size: 1.6rem;
     font-family: "Inter", sans-serif;
 }
+
+@media (max-width: 768px) {
+    html {
+        font-size: 45%;
+    }
+}

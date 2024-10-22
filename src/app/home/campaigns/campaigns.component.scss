@@ -105,3 +105,12 @@
 
     }
 }
+
+@media (max-width: 768px) {
+
+    .campaign .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

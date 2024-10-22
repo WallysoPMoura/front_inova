@@ -17,3 +17,5 @@ export type Idea = {
         name: string
     }
 }
+
+export type viewType = 'USER' | 'ADMIN'

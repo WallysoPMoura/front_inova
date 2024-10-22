@@ -70,6 +70,11 @@ export class AuthService extends ApiService {
     return !!localStorage?.getItem('token') && jwtDecode(localStorage.getItem('token')!!)?.exp! > Date.now() / 1000
   }
 
+  get role() {
+    const { role } = jwtDecode(localStorage.getItem('token')!!) as any;
+    return role;
+  }
+
   get user() {
     if (!this.isAuthenticated || !localStorage.getItem('user')) {
       return '';

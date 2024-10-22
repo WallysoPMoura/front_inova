@@ -20,6 +20,7 @@
 
     .logo {
         height: 4.7rem;
+        cursor: pointer;
     }
 
     .container {
@@ -52,4 +53,44 @@
 
 main {
     padding: 3.2rem 3.4rem;
+}
+
+@media (max-width: 768px) {
+
+
+    .navbar {
+
+        .logo {
+            margin: 0 auto;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: absolute;
+            width: 100%;
+
+            top: 10rem;
+            right: 0;
+
+            background-color: #fff;
+
+            z-index: 2;
+
+            padding: 1rem 3.4rem;
+
+            .items {
+                a {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    main {
+        padding-top: 10rem;
+    }
+
 }

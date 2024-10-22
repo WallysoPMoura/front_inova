@@ -42,7 +42,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            
+
             cursor: pointer;
         }
 
@@ -72,4 +72,21 @@
         }
     }
 
+}
+
+@media (max-width: 768px) {
+
+    .details {
+        width: 80vw;
+
+        p {
+            max-height: 50rem;
+            overflow-y: auto;
+
+            padding: 0 2rem 0 0;
+
+            text-align: justify;
+        }
+
+    }
 }

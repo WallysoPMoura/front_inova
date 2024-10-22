@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CodeValideComponent } from './auth/code-valide/code-valide.component';
@@ -9,6 +9,8 @@ import { authGuard } from './@core/guards/auth.guard';
 import { IdeasCenterComponent } from './home/ideas-center/ideas-center.component';
 import { CampaignsComponent } from './home/campaigns/campaigns.component';
 import { RankingIdeasComponent } from './home/ranking-ideas/ranking-ideas.component';
+import { Inject } from '@angular/core';
+import { AuthService } from './@core/services/auth.service';
 
 export const routes: Routes = [
     {
@@ -51,8 +53,8 @@ export const routes: Routes = [
                 component: RankingIdeasComponent
             },
             {
-                path: 'campaigns/:campaignId',
-                component: CampaignsComponent
+                path: 'campaigns',
+                component: CampaignsComponent,
             },
             {
                 path: '**',

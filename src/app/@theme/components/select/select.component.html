@@ -9,9 +9,9 @@
     </div>
 </div>
 
-<div #select class="items" [class.label]="label">
+<div #select class="items" [class.label]="label" >
     <div class="container">
-        <ol>
+        <ol [ngStyle]="{'max-height': maxHeight ? maxHeight + 'rem' : '25.6rem'}">
             @for (item of items; track $index) {
             <li (click)="change(item.value)" [class.selected]="value == item.value">
                 <span>{{ item?.label }}</span>

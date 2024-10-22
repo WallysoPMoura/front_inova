@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { RankItem, RankType } from '../../../@core/types/rank.type';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'inova-rank',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, RouterLink],
   templateUrl: './rank.component.html',
   styleUrl: './rank.component.scss'
 })

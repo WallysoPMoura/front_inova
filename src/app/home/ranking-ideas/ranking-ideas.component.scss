@@ -44,3 +44,26 @@
     }
 
 }
+
+@media (max-width: 768px) {
+
+    .ranking {
+
+        .graphics {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filters .input-group {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .ranks {
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+
+}

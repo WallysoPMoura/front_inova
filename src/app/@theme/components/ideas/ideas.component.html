@@ -16,7 +16,15 @@
                     <p>{{ idea.idea }}</p>
                 </div>
 
-                <button inovaButton status="outline" (click)="openDetails(idea)">Visualizar ideia</button>
+                @if(viewType == 'USER') {
+                    <button inovaButton status="outline" (click)="openDetails(idea)">Visualizar ideia</button>
+                } @else {
+                    <div class="row">
+                        <button inovaButton status="secondary" (click)="openDetails(idea)">Visualizar ideia</button>
+                        <button inovaButton status="outline" (click)="evaluate(idea)">Avaliar ideia</button>
+                    </div>
+                }
+
             </div>
         </li>
         }

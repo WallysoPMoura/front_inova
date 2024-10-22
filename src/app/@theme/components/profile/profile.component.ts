@@ -18,7 +18,11 @@ export class ProfileComponent {
   }
 
   get tags() {
-    return ['Colaboradora', 'Inovadora', 'Participativa']
+    if(this.authService.role === 'ADMIN') {
+      return ['Avaliador(a)']
+    }
+
+    return ['Colaborador(a)', 'Inovador(a)', 'Participativo(a)']
   }
 
 }
